@@ -1,0 +1,14 @@
+{
+  "name": "savant",
+  "version": "1.0.0",
+  "description": "Image web scraper for the desktop",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Timothy R Hyatt",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "1.7.10"
+  }
+}
