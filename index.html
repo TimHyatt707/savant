@@ -4,7 +4,12 @@
     <title>Savant</title>
     <link rel="stylesheet" href='./index.css' />
   </head>
-  <body>
-    <root />
+  <body id="root">
+    <script>
+    const renderHTML = require('./scripts/renderHTML');
+    require('electron').ipcRenderer.on('html', () => {
+      renderHTML();
+    })
+    </script>
   </body>
 </html>

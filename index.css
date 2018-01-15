@@ -3,6 +3,18 @@ h1 {
   font-style: italic;
 }
 
-#search-bar {
-  
+.image-container {
+  height: auto;
+  width: auto;
+}
+
+.search-bar-section {
+  width: 50%;
+}
+.search-bar {
+  width: 100%;
+}
+
+.search-button {
+  margin-top: 10px;
 }
