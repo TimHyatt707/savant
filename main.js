@@ -13,7 +13,10 @@ function createWindow(){
     slashes: true
   }));
 
-  win.webContents.openDevTools()
+  //Dynamically render the HTML
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('html');
+  })
 
   win.on('closed', () => {
     win = null;
