@@ -1,5 +1,3 @@
-const webScraper = require('../scrapers/WebScraper');
-
 function SearchBar(){
   const section = document.createElement('section');
   const input = document.createElement('input');
@@ -14,9 +12,10 @@ function SearchBar(){
   section.appendChild(input);
   section.appendChild(button);
 
-  button.addEventListener('click', async () => {
-    const results = await webScraper(input.value);
-    console.log(results);
+  button.addEventListener('click', () => {
+    const event = new Event('boop');
+    const [imgContainer] = document.querySelectorAll('.image-container');
+    imgContainer.dispatchEvent(event);
   });
 
   return section;
