@@ -22,7 +22,6 @@ async function WebScraper(url){
       let indexOfSlash = domain.indexOf('/');
       domain = domain.slice(0, indexOfSlash);
     }
-    console.log(domain);
     $('img').each((i,element) => {
       let link = element.attribs.src;
 
@@ -37,18 +36,12 @@ async function WebScraper(url){
       //add header
       !link.startsWith('http') ? link = 'https://' + link : link;
 
-      console.log(link);
-
       imageUrls.push(link);
     });
-    imageUrls.forEach( async imageUrl => {
-      try {
-      let image = await fetch(imageUrl);
-      results.push(image);
-      }
-      catch (error) {
-        throw new Error(error.message)
-      }
+    imageUrls.forEach(imageUrl => {
+      fetch(imageUrl).then(image => {
+        results.push(image);
+      }).catch((error) => console.log(error));
     });
     return results;
 } catch (error) {

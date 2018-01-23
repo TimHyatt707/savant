@@ -8,16 +8,22 @@ function ImageContainer(){
   section.addEventListener('boop', async (e) => {
     try {
       const [searchBar] = document.getElementsByClassName('search-bar');
-      const results = await webScraper(searchBar.value);
-      results.map(result => {
-        let img = document.createElement('img');
-        img.className = 'thumbnail';
-        img.setAttribute('src', result.url);
-        section.appendChild(img);
+      const [imgContainer] = document.getElementsByClassName('image-container');
+      webScraper(searchBar.value).then(results => {
+        console.log(results);
+        results.forEach(result => {
+          let img = document.createElement('img');
+          img.className = 'thumbnail';
+          img.setAttribute('src', result.url);
+          imgContainer.appendChild(img);
+        });
+      })
+      .catch(error => {
+        console.log(error.message);
       });
     }
     catch (error) {
-      throw new Error(error);
+      console.log(error);
     }
   });
 
