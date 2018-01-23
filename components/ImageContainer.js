@@ -9,6 +9,12 @@ function ImageContainer(){
     try {
       const [searchBar] = document.getElementsByClassName('search-bar');
       const results = await webScraper(searchBar.value);
+      results.map(result => {
+        let img = document.createElement('img');
+        img.className = 'thumbnail';
+        img.setAttribute('src', result.url);
+        section.appendChild(img);
+      });
     }
     catch (error) {
       throw new Error(error);
